@@ -1,6 +1,6 @@
 [DEFAULT]
+timestamp = 20180601-102544
 rootpath = /mnt/storage/karr/users/furrer/prlnk
-timestamp = 20180601-070814
 workers = 10
 
 [general]

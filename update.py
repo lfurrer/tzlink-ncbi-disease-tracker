@@ -35,21 +35,25 @@ def main():
     ap.add_argument(
         '-u', '--push', action='store_true',
         help='push to the remote tracker repo after updating')
+    ap.add_argument(
+        '-m', '--message',
+        help='use this instead of the commit message')
     args = ap.parse_args()
-    run(sys.stdin.read(), args.pull, args.push)
+    run(sys.stdin.read(), **vars(args))
 
 
-def run(summary, pull=False, push=False):
+def run(summary, pull=False, push=False, message=None):
     '''
     Process the result summary and update the repo.
     '''
     if pull or push:
         _git('pull', REMOTE, BRANCH)
     hash_, msg, results, conf = _parse(summary)
-    msg = msg.split('\n')[0]
+    if message is None:
+        message = msg.split('\n')[0]
     score = _main_score(results)
-    _add_data(msg, ['results', 'config'], [results, conf])
-    _update_table('README.md', hash_, msg, score)
+    _add_data(message, ['results', 'config'], [results, conf])
+    _update_table('README.md', hash_, message, score)
     if push:
         _git('push', REMOTE, BRANCH)
 

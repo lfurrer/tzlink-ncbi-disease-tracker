@@ -1,6 +1,6 @@
-# Result Tracker
+# Disease-normalization Results
 
-Utility for tracking experimental progress over time.
+Experimental progress over time.
 
-| Date | Changes | Score | Compare | Commit |
-| ---- | ------- | ----- | ------- | ------ |
+| Date | Changes | Accuracy | Compare | Commit |
+| ---- | ------- | -------- | ------- | ------ |

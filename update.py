@@ -21,7 +21,7 @@ HERE = os.path.dirname(__file__)
 
 BRANCH = 'master'
 REMOTE = 'origin'
-REMOTE_URL = 'https://github.com/USER/PROJECT'
+REMOTE_URL = 'https://github.com/en-dash/disease-normalization'
 
 
 def main():

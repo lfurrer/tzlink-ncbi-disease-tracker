@@ -1,6 +1,6 @@
 [DEFAULT]
-timestamp = 20180604-075120
 rootpath = /mnt/storage/karr/users/furrer/prlnk
+timestamp = 20180604-081819
 workers = 10
 
 [general]
@@ -16,7 +16,7 @@ summary_fn = runs/summaries/${timestamp}.txt
 prediction_fn = runs/predictions/${timestamp}.tsv
 
 [candidates]
-generator = SGramFixedSet(10, [(2, 1), (3, 1)])
+generator = SGramFixedSet(1000, [(2, 1), (3, 1)])
 oracle = none
 workers = 28
 

@@ -1,6 +1,6 @@
 [DEFAULT]
+timestamp = 20180604-083127
 rootpath = /mnt/storage/karr/users/furrer/prlnk
-timestamp = 20180604-081819
 workers = 10
 
 [general]
@@ -30,7 +30,7 @@ filter_width = 3
 activation = tanh
 optimizer = adadelta
 loss = binary_crossentropy
-epochs = 10
+epochs = 3
 batch_size = 32
 min_score = 0.0
 

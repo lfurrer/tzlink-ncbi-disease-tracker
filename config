@@ -1,13 +1,12 @@
 [DEFAULT]
-timestamp = 20180604-083127
 rootpath = /mnt/storage/karr/users/furrer/prlnk
+timestamp = 20180605-135701
 workers = 10
 
 [general]
 dataset = ncbi-disease
 training_subset = train
 prediction_subset = dev
-vectorizer_cache = True
 
 [logging]
 format = %(asctime)s - %(message)s
@@ -16,21 +15,26 @@ summary_fn = runs/summaries/${timestamp}.txt
 prediction_fn = runs/predictions/${timestamp}.tsv
 
 [candidates]
-generator = SGramFixedSet(1000, [(2, 1), (3, 1)])
+generator = SGramFixedSet(10, [(2, 1), (3, 1)])
 oracle = none
 workers = 28
 
-[rank]
+[emb]
 sample_size = 100
-embedding_fn = ${rootpath}/data/wvec_50_haodi-li-et-al.bin
+tokenizer = bpe
+tokenizer_model = ${rootpath}/data/embeddings/bpe_abstract10000model
+embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
 embedding_dim = 50
 embedding_voc = 10000
+vectorizer_cache = True
+
+[rank]
 n_kernels = 50
 filter_width = 3
 activation = tanh
 optimizer = adadelta
 loss = binary_crossentropy
-epochs = 3
+epochs = 10
 batch_size = 32
 min_score = 0.0
 

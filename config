@@ -1,6 +1,6 @@
 [DEFAULT]
 rootpath = /mnt/storage/karr/users/furrer/prlnk
-timestamp = 20180605-135701
+timestamp = 20180607-144537
 workers = 10
 
 [general]
@@ -15,15 +15,15 @@ summary_fn = runs/summaries/${timestamp}.txt
 prediction_fn = runs/predictions/${timestamp}.tsv
 
 [candidates]
-generator = SGramFixedSet(10, [(2, 1), (3, 1)])
+generator = PhraseVecFixedSet(20, "sum")
 oracle = none
-workers = 28
+workers = 1
 
 [emb]
 sample_size = 100
-tokenizer = bpe
-tokenizer_model = ${rootpath}/data/embeddings/bpe_abstract10000model
-embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
+tokenizer = whitespace
+tokenizer_model = none
+embedding_fn = ${rootpath}/data/embeddings/wvec_50_haodi-li-et-al.bin
 embedding_dim = 50
 embedding_voc = 10000
 vectorizer_cache = True
@@ -43,3 +43,6 @@ train_fn = ${rootpath}/data/ncbi-disease/NCBItrainset_corpus.txt
 dev_fn = ${rootpath}/data/ncbi-disease/NCBIdevelopset_corpus.txt
 test_fn = ${rootpath}/data/ncbi-disease/NCBItestset_corpus.txt
 dict_fn = ${rootpath}/data/ncbi-disease/CTD_diseases.tsv
+
+[stop]
+min_delta = 0.01

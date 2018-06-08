@@ -87,7 +87,7 @@ def _update_table(filename, hash_, msg, score):
     local_link = '[diff](../../commit/{})'.format(_get_hash())
     remote_link = '[original]({}/commit/{})'.format(REMOTE_URL, hash_)
     row = ' | '.join([date, msg, score, local_link, remote_link]) + '\n'
-    with open(filename, 'a', encoding='utf8') as f:
+    with open(os.path.join(HERE, filename), 'a', encoding='utf8') as f:
         f.write(row)
     _git('add', filename)
     _git('commit', '-m', '{} (table)'.format(msg))

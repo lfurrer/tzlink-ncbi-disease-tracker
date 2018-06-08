@@ -12,7 +12,6 @@ Add a new set of results to the tracker.
 import re
 import os
 import sys
-import time
 import argparse
 import subprocess as sp
 
@@ -89,7 +88,7 @@ def _update_table(filename, hash_, msg, date, scores):
     local_link = '[diff](../../commit/{})'.format(_get_hash())
     remote_link = '[original]({}/commit/{})'.format(REMOTE_URL, hash_)
     row = ' | '.join([date, msg, *scores, local_link, remote_link]) + '\n'
-    with open(filename, 'a', encoding='utf8') as f:
+    with open(os.path.join(HERE, filename), 'a', encoding='utf8') as f:
         f.write(row)
     _git('add', filename)
     _git('commit', '-m', '{} (table)'.format(msg))

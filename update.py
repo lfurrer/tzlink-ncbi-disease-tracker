@@ -48,12 +48,12 @@ def run(summary, pull=False, push=False, message=None):
     '''
     if pull or push:
         _git('pull', REMOTE, BRANCH)
-    hash_, msg, results, conf = _parse(summary)
+    hash_, msg, date, results, log, conf = _parse(summary)
     if message is None:
         message = msg.split('\n')[0]
-    score = _main_score(results)
-    _add_data(message, ['results', 'config'], [results, conf])
-    _update_table('README.md', hash_, message, score)
+    scores = _main_scores(results)
+    _add_data(message, ['results', 'config', 'log'], [results, conf, log])
+    _update_table('README.md', hash_, message, date, scores)
     if push:
         _git('push', REMOTE, BRANCH)
 
@@ -62,15 +62,18 @@ def _parse(summary):
     m = re.match(r'''
         \#\ Commit\ hash: (.+?)
         \#\ Commit\ message: (.+?)
+        \#\ Execution\ timestamp: (.+?)
         \#\ Results: (.+?)
+        \#\ Log: (.+?)
         \#\ Configuration: (.+)
         ''', summary, re.DOTALL | re.VERBOSE)
     return [hunk.strip() for hunk in m.groups()]
 
 
-def _main_score(results):
-    acc = float(results.split()[1])
-    return '{:.4}'.format(acc)
+def _main_scores(results):
+    acc, corr, total, unreachable = map(float, results.split()[1:8:2])
+    reachable = corr/(total-unreachable)
+    return ['{:.4}'.format(s) for s in (acc, reachable)]
 
 
 def _add_data(msg, filenames, contents):
@@ -82,11 +85,10 @@ def _add_data(msg, filenames, contents):
     _git('commit', '-m', '{} (data)'.format(msg), '--allow-empty')
 
 
-def _update_table(filename, hash_, msg, score):
-    date = time.strftime('%Y-%m-%d %H:%M:%S')
+def _update_table(filename, hash_, msg, date, scores):
     local_link = '[diff](../../commit/{})'.format(_get_hash())
     remote_link = '[original]({}/commit/{})'.format(REMOTE_URL, hash_)
-    row = ' | '.join([date, msg, score, local_link, remote_link]) + '\n'
+    row = ' | '.join([date, msg, *scores, local_link, remote_link]) + '\n'
     with open(filename, 'a', encoding='utf8') as f:
         f.write(row)
     _git('add', filename)

@@ -1,5 +1,5 @@
 [DEFAULT]
-timestamp = 20180608-103822
+timestamp = 20180611-110130
 rootpath = /mnt/storage/karr/users/furrer/prlnk
 workers = 10
 
@@ -15,9 +15,10 @@ summary_fn = runs/summaries/${timestamp}.txt
 prediction_fn = runs/predictions/${timestamp}.tsv
 
 [candidates]
-generator = SGramFixedSet(10, [(2, 1), (3, 1)])
+generator = SGramCosine(.5, 10, [(2, 1), (3, 1)])
+	PhraseVecFixedSet(10, "mean")
 oracle = none
-workers = 48
+workers = 0
 
 [emb]
 sample_size = 100

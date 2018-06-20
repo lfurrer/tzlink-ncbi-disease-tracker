@@ -1,7 +1,7 @@
 [DEFAULT]
-timestamp = 20180613-092832
-rootpath = /mnt/storage/karr/users/furrer/prlnk
-workers = 10
+timestamp = 20180620-102115
+rootpath = /home/lenz/disease-normalization
+workers = 0
 
 [general]
 dataset = ncbi-disease
@@ -15,31 +15,42 @@ summary_fn = runs/summaries/${timestamp}.txt
 prediction_fn = runs/predictions/${timestamp}.tsv
 
 [candidates]
-generator = SGramCosine(.5, 20, [(2, 1), (3, 1)])
+generator = SGramCosine(.5, 20)
 oracle = none
 workers = 0
 
 [emb]
 sample_size = 100
-tokenizer = whitespace
-tokenizer_model = ${rootpath}/data/embeddings/bpe_abstract10000model
-embedding_fn = ${rootpath}/data/embeddings/wvec_50_haodi-li-et-al.bin
 embedding_dim = 50
 embedding_voc = 10000
 vectorizer_cache = True
+tokenizer = whitespace
+embedding_fn = ${rootpath}/data/embeddings/wvec_50_haodi-li-et-al.bin
+trainable = False
+
+[emb_sub]
+sample_size = ${emb:sample_size}
+embedding_dim = ${emb:embedding_dim}
+embedding_voc = ${emb:embedding_voc}
+vectorizer_cache = ${emb:vectorizer_cache}
+tokenizer = bpe
+tokenizer_model = ${rootpath}/data/embeddings/bpe_abstract10000model
+embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
+trainable = False
 
 [rank]
+embeddings = ["emb", "emb_sub"]
 n_kernels = 50
 filter_width = 3
 activation = tanh
-optimizer = {"class_name": "adadelta", "config": {"lr": 1.0}}
+optimizer = {"class_name": "adadelta", "config": {"lr": 0.1}}
 loss = binary_crossentropy
-epochs = 10
+epochs = 100
 batch_size = 32
 min_score = 0.0
 
 [stop]
-min_delta = 0.01
+min_delta = 0
 patience = 2
 baseline = 0
 

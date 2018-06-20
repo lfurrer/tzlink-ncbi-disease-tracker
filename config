@@ -1,6 +1,6 @@
 [DEFAULT]
-timestamp = 20180620-102115
 rootpath = /home/lenz/disease-normalization
+timestamp = 20180620-102655
 workers = 0
 
 [general]
@@ -39,7 +39,7 @@ embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
 trainable = False
 
 [rank]
-embeddings = ["emb", "emb_sub"]
+embeddings = ["emb_sub"]
 n_kernels = 50
 filter_width = 3
 activation = tanh

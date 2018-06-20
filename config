@@ -1,6 +1,6 @@
 [DEFAULT]
 rootpath = /home/lenz/disease-normalization
-timestamp = 20180620-102655
+timestamp = 20180620-103131
 workers = 0
 
 [general]
@@ -26,7 +26,7 @@ embedding_voc = 10000
 vectorizer_cache = True
 tokenizer = whitespace
 embedding_fn = ${rootpath}/data/embeddings/wvec_50_haodi-li-et-al.bin
-trainable = False
+trainable = True
 
 [emb_sub]
 sample_size = ${emb:sample_size}

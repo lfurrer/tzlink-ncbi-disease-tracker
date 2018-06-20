@@ -1,41 +1,42 @@
-2018-06-20 10:26:56,560 - The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+2018-06-20 10:31:32,824 - The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
  https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
 
-2018-06-20 10:26:59,651 - 'pattern' package not found; tag filters are not available for English
-2018-06-20 10:26:59,659 - loading terminology...
-2018-06-20 10:26:59,972 - loading pretrained embeddings...
-2018-06-20 10:26:59,973 - loading projection weights from /home/lenz/disease-normalization/data/embeddings/bpe_vectors_10000_50_w2v.txt
-2018-06-20 10:27:00,835 - loaded (10257, 50) matrix from /home/lenz/disease-normalization/data/embeddings/bpe_vectors_10000_50_w2v.txt
-2018-06-20 10:27:00,846 - loading vectorizer...
-2018-06-20 10:27:00,957 - loading candidate generator...
-2018-06-20 10:27:16,208 - preprocessing validation data...
-2018-06-20 10:27:16,209 - loading corpus...
-2018-06-20 10:27:16,224 - generating candidates with 0 workers...
-2018-06-20 10:27:20,309 - generated 5671 pair-wise samples (11585 with duplicates)
-2018-06-20 10:27:20,311 - compiling model architecture...
-2018-06-20 10:27:21,473 - preprocessing training data...
-2018-06-20 10:27:21,473 - loading corpus...
-2018-06-20 10:27:21,667 - generating candidates with 0 workers...
-2018-06-20 10:27:42,750 - generated 26308 pair-wise samples (71125 with duplicates)
-2018-06-20 10:27:42,762 - training CNN...
-2018-06-20 10:28:00,728 - Ranking accuracy: 0.593393
-2018-06-20 10:28:07,438 - Ranking accuracy: 0.6277
-2018-06-20 10:28:13,852 - Ranking accuracy: 0.631512
-2018-06-20 10:28:20,425 - Ranking accuracy: 0.635324
-2018-06-20 10:28:27,022 - Ranking accuracy: 0.655654
-2018-06-20 10:28:33,199 - Ranking accuracy: 0.674714
-2018-06-20 10:28:39,943 - Ranking accuracy: 0.682338
-2018-06-20 10:28:46,831 - Ranking accuracy: 0.710292
-2018-06-20 10:28:53,180 - Ranking accuracy: 0.722999
-2018-06-20 10:28:59,295 - Ranking accuracy: 0.736976
-2018-06-20 10:29:06,193 - Ranking accuracy: 0.739517
-2018-06-20 10:29:12,656 - Ranking accuracy: 0.740788
-2018-06-20 10:29:19,170 - Ranking accuracy: 0.749682
-2018-06-20 10:29:25,554 - Ranking accuracy: 0.749682
-2018-06-20 10:29:31,515 - Ranking accuracy: 0.753494
-2018-06-20 10:29:38,366 - Ranking accuracy: 0.752224
-2018-06-20 10:29:45,021 - Ranking accuracy: 0.756036
-2018-06-20 10:29:51,503 - Ranking accuracy: 0.753494
-2018-06-20 10:29:57,791 - Ranking accuracy: 0.754765
-2018-06-20 10:29:57,791 - Epoch 00019: early stopping
-2018-06-20 10:29:57,792 - done training.
+2018-06-20 10:31:36,084 - 'pattern' package not found; tag filters are not available for English
+2018-06-20 10:31:36,092 - loading terminology...
+2018-06-20 10:31:36,403 - loading pretrained embeddings...
+2018-06-20 10:31:36,403 - loading projection weights from /home/lenz/disease-normalization/data/embeddings/bpe_vectors_10000_50_w2v.txt
+2018-06-20 10:31:37,271 - loaded (10257, 50) matrix from /home/lenz/disease-normalization/data/embeddings/bpe_vectors_10000_50_w2v.txt
+2018-06-20 10:31:37,284 - loading vectorizer...
+2018-06-20 10:31:37,416 - loading candidate generator...
+2018-06-20 10:31:51,496 - preprocessing validation data...
+2018-06-20 10:31:51,496 - loading corpus...
+2018-06-20 10:31:51,505 - generating candidates with 0 workers...
+2018-06-20 10:31:55,387 - generated 5671 pair-wise samples (11585 with duplicates)
+2018-06-20 10:31:55,389 - compiling model architecture...
+2018-06-20 10:31:56,393 - preprocessing training data...
+2018-06-20 10:31:56,393 - loading corpus...
+2018-06-20 10:31:56,587 - generating candidates with 0 workers...
+2018-06-20 10:32:14,387 - generated 26308 pair-wise samples (71125 with duplicates)
+2018-06-20 10:32:14,409 - training CNN...
+2018-06-20 10:32:37,062 - Ranking accuracy: 0.491741
+2018-06-20 10:32:46,149 - Ranking accuracy: 0.550191
+2018-06-20 10:32:55,435 - Ranking accuracy: 0.645489
+2018-06-20 10:33:04,643 - Ranking accuracy: 0.664549
+2018-06-20 10:33:13,936 - Ranking accuracy: 0.669632
+2018-06-20 10:33:22,963 - Ranking accuracy: 0.673443
+2018-06-20 10:33:32,155 - Ranking accuracy: 0.691233
+2018-06-20 10:33:41,079 - Ranking accuracy: 0.696315
+2018-06-20 10:33:50,323 - Ranking accuracy: 0.715375
+2018-06-20 10:33:59,614 - Ranking accuracy: 0.729352
+2018-06-20 10:34:08,834 - Ranking accuracy: 0.733164
+2018-06-20 10:34:18,368 - Ranking accuracy: 0.747141
+2018-06-20 10:34:27,433 - Ranking accuracy: 0.747141
+2018-06-20 10:34:36,540 - Ranking accuracy: 0.750953
+2018-06-20 10:34:45,699 - Ranking accuracy: 0.750953
+2018-06-20 10:34:54,978 - Ranking accuracy: 0.752224
+2018-06-20 10:35:04,327 - Ranking accuracy: 0.750953
+2018-06-20 10:35:13,851 - Ranking accuracy: 0.756036
+2018-06-20 10:35:23,100 - Ranking accuracy: 0.756036
+2018-06-20 10:35:32,328 - Ranking accuracy: 0.756036
+2018-06-20 10:35:32,329 - Epoch 00020: early stopping
+2018-06-20 10:35:32,330 - done training.

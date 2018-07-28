@@ -1,6 +1,4 @@
 [DEFAULT]
-rootpath = /home/lenz/disease-normalization
-timestamp = 20180620-103131
 workers = 0
 
 [general]
@@ -11,8 +9,9 @@ prediction_subset = dev
 [logging]
 format = %(asctime)s - %(message)s
 level = INFO
-summary_fn = runs/summaries/${timestamp}.txt
-prediction_fn = runs/predictions/${timestamp}.tsv
+summary_fn = ${rootpath}/runs/summaries/${timestamp}.txt
+prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
+detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 
 [candidates]
 generator = SGramCosine(.5, 20)
@@ -25,8 +24,8 @@ embedding_dim = 50
 embedding_voc = 10000
 vectorizer_cache = True
 tokenizer = whitespace
-embedding_fn = ${rootpath}/data/embeddings/wvec_50_haodi-li-et-al.bin
-trainable = True
+embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-30_chiu-et-al.bin
+trainable = False
 
 [emb_sub]
 sample_size = ${emb:sample_size}
@@ -39,7 +38,7 @@ embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
 trainable = False
 
 [rank]
-embeddings = ["emb_sub"]
+embeddings = ["emb"]
 n_kernels = 50
 filter_width = 3
 activation = tanh

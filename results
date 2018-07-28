@@ -1,5 +1,5 @@
-accuracy     0.7560355781448539
-correct        595
+accuracy     0.7712833545108005
+correct        607
 total          787
 unreachable    129
 nocandidates    10

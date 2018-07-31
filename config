@@ -14,7 +14,8 @@ prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 
 [candidates]
-generator = PhraseVecFixedSet(10, "mean", "emb_stem")
+generator = SGramCosine(.5, 10)
+	PhraseVecFixedSet(10, "mean", "emb_stem")
 oracle = none
 workers = 0
 

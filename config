@@ -17,6 +17,7 @@ detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 generator = SGramCosine(.5, 20)
 	PhraseVecFixedSet(20, "mean", "emb_stem")
 	Hyperonym
+	Abbreviation
 oracle = none
 workers = 0
 
@@ -51,11 +52,10 @@ loss = binary_crossentropy
 epochs = 100
 batch_size = 32
 min_score = 0.0
-patience = 5
 
 [stop]
 min_delta = 0
-patience = 2
+patience = 5
 baseline = 0
 
 [ncbi-disease]

@@ -17,7 +17,7 @@ import argparse
 import subprocess as sp
 
 
-HERE = os.path.dirname(__file__)
+HERE = os.path.dirname(__file__) or '.'
 
 BRANCH = 'master'
 REMOTE = 'origin'

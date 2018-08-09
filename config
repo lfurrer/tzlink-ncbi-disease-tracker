@@ -18,7 +18,7 @@ generator = SGramCosine(.5, 20)
 	PhraseVecFixedSet(20, "mean", "emb_stem")
 	Hyperonym
 	Abbreviation
-oracle = none
+oracle = {"train": 3, "predict": 0}
 workers = 0
 
 [emb]
@@ -45,7 +45,7 @@ trainable = False
 [rank]
 embeddings = ["emb", "emb_sub"]
 n_kernels = 50
-filter_width = 3
+filter_width = [3, 4, 5]
 activation = tanh
 optimizer = {"class_name": "adam", "config": {"amsgrad": true}}
 loss = binary_crossentropy

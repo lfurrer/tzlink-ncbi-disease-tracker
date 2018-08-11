@@ -22,7 +22,8 @@ oracle = {"train": 3, "predict": 0}
 workers = 0
 
 [emb]
-sample_size = 100
+sample_size = 50
+context_size = 500
 embedding_dim = 50
 embedding_voc = 10000
 vectorizer_cache = True
@@ -33,6 +34,7 @@ trainable = False
 
 [emb_sub]
 sample_size = ${emb:sample_size}
+context_size = ${emb:context_size}
 embedding_dim = ${emb:embedding_dim}
 embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}
@@ -66,6 +68,7 @@ dict_fn = ${rootpath}/data/ncbi-disease/CTD_diseases.tsv
 
 [emb_stem]
 sample_size = ${emb:sample_size}
+context_size = ${emb:context_size}
 embedding_dim = ${emb:embedding_dim}
 embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}

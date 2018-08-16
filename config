@@ -47,7 +47,7 @@ trainable = False
 [rank]
 embeddings = ["emb"]
 n_kernels = 50
-filter_width = [3, 4, 5]
+filter_width = [3]
 activation = tanh
 optimizer = {"class_name": "adam", "config": {"amsgrad": true}}
 loss = binary_crossentropy

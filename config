@@ -14,8 +14,8 @@ prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 
 [candidates]
-generator = SGramCosine(.5, 20)
-	PhraseVecFixedSet(20, "mean", "emb_stem")
+generator = SGramCosine(.4, 40)
+	PhraseVecFixedSet(40, "mean", "emb_stem")
 	Hyperonym
 	Abbreviation
 oracle = {"train": 3, "predict": 0}
@@ -45,7 +45,7 @@ embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
 trainable = False
 
 [rank]
-embeddings = ["emb", "emb_sub"]
+embeddings = ["emb"]
 n_kernels = 50
 filter_width = [3, 4, 5]
 activation = tanh
@@ -57,7 +57,7 @@ min_score = 0.0
 
 [stop]
 min_delta = 0
-patience = 5
+patience = 3
 baseline = 0
 
 [ncbi-disease]

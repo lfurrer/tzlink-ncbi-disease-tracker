@@ -14,8 +14,8 @@ prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 
 [candidates]
-generator = SGramCosine(.4, 40)
-	PhraseVecFixedSet(40, "mean", "emb_stem")
+generator = SGramCosine(.3, 100)
+	PhraseVecFixedSet(100, "mean", "emb_stem")
 	Hyperonym
 	Abbreviation
 oracle = {"train": 3, "predict": 0}

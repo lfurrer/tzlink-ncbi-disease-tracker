@@ -39,13 +39,13 @@ embedding_dim = ${emb:embedding_dim}
 embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}
 tokenizer = bpe
-tokenizer_model = ${rootpath}/data/embeddings/bpe_abstract10000model
+tokenizer_model = ${rootpath}/data/embeddings/bpe_pmcoa10000model
 preprocess = none
-embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
+embedding_fn = ${rootpath}/data/embeddings/bpe_pmcoa10000_vectors200.txt
 trainable = False
 
 [rank]
-embeddings = ["emb"]
+embeddings = ["emb_sub"]
 n_kernels = 50
 filter_width = [3]
 activation = tanh

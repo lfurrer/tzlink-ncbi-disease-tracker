@@ -45,7 +45,7 @@ embedding_fn = ${rootpath}/data/embeddings/bpe_pmcoa10000_vectors200.txt
 trainable = False
 
 [rank]
-embeddings = ["emb_sub"]
+embeddings = ["emb", "emb_sub"]
 n_kernels = 50
 filter_width = [3]
 activation = tanh

@@ -5,6 +5,7 @@ workers = 0
 dataset = ncbi-disease
 training_subset = train
 prediction_subset = dev
+nil_symbol = NIL
 
 [logging]
 format = %(asctime)s - %(message)s
@@ -12,12 +13,14 @@ level = INFO
 summary_fn = ${rootpath}/runs/summaries/${timestamp}.txt
 prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
+trec_eval_fn = ${rootpath}/runs/trec_eva/${timestamp}.{}.tsv
 
 [candidates]
 generator = SGramCosine(.3, 100)
 	PhraseVecFixedSet(100, "mean", "emb_stem")
 	Hyperonym
 	Abbreviation
+	Composite
 oracle = {"train": 3, "predict": 0}
 workers = 0
 
@@ -45,7 +48,7 @@ embedding_fn = ${rootpath}/data/embeddings/bpe_pmcoa10000_vectors200.txt
 trainable = False
 
 [rank]
-embeddings = ["emb", "emb_sub"]
+embeddings = ["emb"]
 n_kernels = 50
 filter_width = [3]
 activation = tanh
@@ -65,6 +68,12 @@ train_fn = ${rootpath}/data/ncbi-disease/NCBItrainset_corpus.txt
 dev_fn = ${rootpath}/data/ncbi-disease/NCBIdevelopset_corpus.txt
 test_fn = ${rootpath}/data/ncbi-disease/NCBItestset_corpus.txt
 dict_fn = ${rootpath}/data/ncbi-disease/CTD_diseases.tsv
+
+[share-clef]
+train_fn = ${rootpath}/data/share-clef/train/
+dev_fn = ${rootpath}/data/share-clef/dev/
+test_fn = ${rootpath}/data/share-clef/test/
+dict_fn = ${rootpath}/data/share-clef/SNOMED.tsv
 
 [emb_stem]
 sample_size = ${emb:sample_size}

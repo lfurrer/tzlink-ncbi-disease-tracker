@@ -1,4 +1,4 @@
-# Disease-normalization Results
+# Disease Normalization with NCBI Disease
 
 Experimental progress over time.
 

@@ -3,9 +3,11 @@ workers = 0
 
 [general]
 dataset = ncbi-disease
-training_subset = train
-prediction_subset = dev
+training_subset = train1
+prediction_subset = dev1
 nil_symbol = NIL
+dataset_cache = ${rootpath}/runs/dscache/{}.tgz
+startup_scripts = []
 
 [logging]
 format = %(asctime)s - %(message)s
@@ -52,11 +54,12 @@ embeddings = ["emb"]
 n_kernels = 50
 filter_width = [3]
 activation = tanh
-optimizer = {"class_name": "adam", "config": {"amsgrad": true}}
+optimizer = {"class_name": "adam", "config": {"amsgrad": true, "lr": 1e-4}}
 loss = binary_crossentropy
 epochs = 100
 batch_size = 32
 min_score = 0.0
+workers = 3
 
 [stop]
 min_delta = 0
@@ -64,15 +67,11 @@ patience = 3
 baseline = 0
 
 [ncbi-disease]
-train_fn = ${rootpath}/data/ncbi-disease/NCBItrainset_corpus.txt
-dev_fn = ${rootpath}/data/ncbi-disease/NCBIdevelopset_corpus.txt
-test_fn = ${rootpath}/data/ncbi-disease/NCBItestset_corpus.txt
-dict_fn = ${rootpath}/data/ncbi-disease/CTD_diseases.tsv
+corpus_dir = ${rootpath}/data/ncbi-disease/
+dict_fn = ${rootpath}/data/ncbi-disease/MEDIC+UMLS.tsv
 
 [share-clef]
-train_fn = ${rootpath}/data/share-clef/train/
-dev_fn = ${rootpath}/data/share-clef/dev/
-test_fn = ${rootpath}/data/share-clef/test/
+corpus_dir = ${rootpath}/data/share-clef/
 dict_fn = ${rootpath}/data/share-clef/SNOMED.tsv
 
 [emb_stem]

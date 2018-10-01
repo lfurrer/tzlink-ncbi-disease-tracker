@@ -12,7 +12,7 @@ startup_scripts = []
 [logging]
 format = %(asctime)s - %(message)s
 level = INFO
-summary_fn = ${rootpath}/runs/summaries/${timestamp}.txt
+summary_fn = ${rootpath}/runs/sum-ensemble-${general:dataset}/${general:training_subset}_2_${timestamp}.txt
 prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 trec_eval_fn = ${rootpath}/runs/trec_eva/${timestamp}.{}.tsv
@@ -23,6 +23,7 @@ generator = SGramCosine(.3, 100)
 	Hyperonym
 	Abbreviation
 	Composite
+	SymbolReplacement
 oracle = {"train": 3, "predict": 0}
 workers = 0
 
@@ -68,7 +69,7 @@ baseline = 0
 
 [ncbi-disease]
 corpus_dir = ${rootpath}/data/ncbi-disease/
-dict_fn = ${rootpath}/data/ncbi-disease/MEDIC+UMLS.tsv
+dict_fn = ${rootpath}/data/ncbi-disease/MEDIC+UMLS-noamb.tsv
 
 [share-clef]
 corpus_dir = ${rootpath}/data/share-clef/

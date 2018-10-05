@@ -12,7 +12,7 @@ startup_scripts = []
 [logging]
 format = %(asctime)s - %(message)s
 level = INFO
-summary_fn = ${rootpath}/runs/sum-ensemble-${general:dataset}/${general:training_subset}_2_${timestamp}.txt
+summary_fn = ${rootpath}/runs/summaries/${timestamp}.txt
 prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
 trec_eval_fn = ${rootpath}/runs/trec_eva/${timestamp}.{}.tsv
@@ -35,7 +35,7 @@ embedding_voc = 10000
 vectorizer_cache = True
 tokenizer = whitespace
 preprocess = none
-embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-30_chiu-et-al.kv
+embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-2_chiu-et-al.kv
 trainable = False
 
 [emb_sub]

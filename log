@@ -1,40 +1,41 @@
-2018-10-04 12:26:49,611 - 'pattern' package not found; tag filters are not available for English
-2018-10-04 12:26:49,951 - The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+2018-10-04 13:20:40,078 - 'pattern' package not found; tag filters are not available for English
+2018-10-04 13:20:40,565 - The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
  https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
 
-2018-10-04 12:26:54,292 - preprocessing dataset "train1"
-2018-10-04 12:26:54,292 - loading corpus...
-2018-10-04 12:26:54,292 - loading terminology...
-2018-10-04 12:26:54,656 - generating candidates with 0 workers...
-2018-10-04 12:26:54,656 - loading candidate generator...
-2018-10-04 12:27:12,039 - loading pretrained embeddings...
-2018-10-04 12:27:12,040 - loading Word2VecKeyedVectors object from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-30_chiu-et-al.kv
-2018-10-04 12:27:18,388 - loading vectors from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-30_chiu-et-al.kv.vectors.npy with mmap=r
-2018-10-04 12:27:18,508 - setting ignored attribute vectors_norm to None
-2018-10-04 12:27:18,508 - loaded /home/lenz/disease-normalization/data/embeddings/wvec_200_win-30_chiu-et-al.kv
-2018-10-04 12:28:24,832 - loading vectorizer...
-2018-10-04 12:28:42,592 - loading pretrained embeddings...
-2018-10-04 12:28:42,592 - loading Word2VecKeyedVectors object from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv
-2018-10-04 12:28:49,550 - loading vectors from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv.vectors.npy with mmap=r
-2018-10-04 12:28:49,590 - setting ignored attribute vectors_norm to None
-2018-10-04 12:28:49,594 - loaded /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv
-2018-10-04 12:28:54,259 - loading vectorizer...
-2018-10-04 12:33:35,744 - generated 574482 pair-wise samples (839025 with duplicates)
-2018-10-04 12:33:36,374 - saving cached dataset at /home/lenz/disease-normalization/runs/dscache/1815ec6b4646d0a83251215fc5effe2fccb6458a.tgz
-2018-10-04 12:35:10,342 - preprocessing dataset "dev1"
-2018-10-04 12:35:10,343 - loading corpus...
-2018-10-04 12:35:10,355 - generating candidates with 0 workers...
-2018-10-04 12:35:52,455 - generated 93600 pair-wise samples (133404 with duplicates)
-2018-10-04 12:35:52,600 - saving cached dataset at /home/lenz/disease-normalization/runs/dscache/34a9928cde674e81efbfdb332245811893c65ea3.tgz
-2018-10-04 12:36:07,471 - compiling model architecture...
-2018-10-04 12:36:14,227 - training CNN...
-2018-10-04 12:41:51,149 - Ranking accuracy: 0.92122
-2018-10-04 12:47:19,312 - Ranking accuracy: 0.92249
-2018-10-04 12:52:55,477 - Ranking accuracy: 0.918679
-2018-10-04 12:58:18,413 - Ranking accuracy: 0.925032
-2018-10-04 13:03:52,800 - Ranking accuracy: 0.926302
-2018-10-04 13:09:26,770 - Ranking accuracy: 0.923761
-2018-10-04 13:14:48,442 - Ranking accuracy: 0.912325
-2018-10-04 13:20:08,504 - Ranking accuracy: 0.92122
-2018-10-04 13:20:08,505 - Epoch 00008: early stopping
-2018-10-04 13:20:08,507 - done.
+2018-10-04 13:20:44,821 - preprocessing dataset "train1"
+2018-10-04 13:20:44,822 - loading corpus...
+2018-10-04 13:20:44,822 - loading terminology...
+2018-10-04 13:20:45,183 - generating candidates with 0 workers...
+2018-10-04 13:20:45,184 - loading candidate generator...
+2018-10-04 13:21:02,855 - loading pretrained embeddings...
+2018-10-04 13:21:02,855 - loading Word2VecKeyedVectors object from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv
+2018-10-04 13:21:09,351 - loading vectors from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv.vectors.npy with mmap=r
+2018-10-04 13:21:09,592 - setting ignored attribute vectors_norm to None
+2018-10-04 13:21:09,593 - loaded /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv
+2018-10-04 13:22:16,784 - loading vectorizer...
+2018-10-04 13:22:34,400 - loading pretrained embeddings...
+2018-10-04 13:22:34,400 - loading Word2VecKeyedVectors object from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv
+2018-10-04 13:22:41,508 - loading vectors from /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv.vectors.npy with mmap=r
+2018-10-04 13:22:41,546 - setting ignored attribute vectors_norm to None
+2018-10-04 13:22:41,549 - loaded /home/lenz/disease-normalization/data/embeddings/wvec_200_win-2_chiu-et-al.kv
+2018-10-04 13:22:46,126 - loading vectorizer...
+2018-10-04 13:27:01,888 - generated 575262 pair-wise samples (840191 with duplicates)
+2018-10-04 13:27:02,356 - saving cached dataset at /home/lenz/disease-normalization/runs/dscache/cf8660d809dff904ed4f1efeb7b19b385acfab2a.tgz
+2018-10-04 13:28:36,568 - preprocessing dataset "dev1"
+2018-10-04 13:28:36,569 - loading corpus...
+2018-10-04 13:28:36,579 - generating candidates with 0 workers...
+2018-10-04 13:29:18,390 - generated 94058 pair-wise samples (134182 with duplicates)
+2018-10-04 13:29:18,490 - saving cached dataset at /home/lenz/disease-normalization/runs/dscache/7e44b21623db45717838fc8b8b21328c6310ef31.tgz
+2018-10-04 13:29:34,793 - compiling model architecture...
+2018-10-04 13:29:40,210 - training CNN...
+2018-10-04 13:35:06,715 - Ranking accuracy: 0.916137
+2018-10-04 13:40:33,812 - Ranking accuracy: 0.917408
+2018-10-04 13:46:03,505 - Ranking accuracy: 0.92249
+2018-10-04 13:51:31,045 - Ranking accuracy: 0.92249
+2018-10-04 13:56:45,898 - Ranking accuracy: 0.919949
+2018-10-04 14:02:01,678 - Ranking accuracy: 0.925032
+2018-10-04 14:07:28,604 - Ranking accuracy: 0.916137
+2018-10-04 14:12:44,958 - Ranking accuracy: 0.917408
+2018-10-04 14:17:59,817 - Ranking accuracy: 0.919949
+2018-10-04 14:17:59,818 - Epoch 00009: early stopping
+2018-10-04 14:17:59,820 - done.

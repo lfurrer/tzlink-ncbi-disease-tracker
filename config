@@ -83,5 +83,5 @@ embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}
 tokenizer = whitespace
 preprocess = stem
-embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-30_chiu-et-al.kv
+embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-2_chiu-et-al.kv
 trainable = False

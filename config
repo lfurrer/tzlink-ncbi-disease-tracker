@@ -25,6 +25,7 @@ generator = SGramCosine(.3, 100)
 	Composite
 	SymbolReplacement
 oracle = {"train": 3, "predict": 0}
+suppress_ambiguous = True
 workers = 0
 
 [emb]
@@ -35,7 +36,7 @@ embedding_voc = 10000
 vectorizer_cache = True
 tokenizer = whitespace
 preprocess = none
-embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-2_chiu-et-al.kv
+embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-30_chiu-et-al.kv
 trainable = False
 
 [emb_sub]
@@ -69,7 +70,7 @@ baseline = 0
 
 [ncbi-disease]
 corpus_dir = ${rootpath}/data/ncbi-disease/
-dict_fn = ${rootpath}/data/ncbi-disease/MEDIC+UMLS-noamb.tsv
+dict_fn = ${rootpath}/data/ncbi-disease/MEDIC+UMLS.tsv
 
 [share-clef]
 corpus_dir = ${rootpath}/data/share-clef/
@@ -83,5 +84,5 @@ embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}
 tokenizer = whitespace
 preprocess = stem
-embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-2_chiu-et-al.kv
+embedding_fn = ${rootpath}/data/embeddings/wvec_200_win-30_chiu-et-al.kv
 trainable = False

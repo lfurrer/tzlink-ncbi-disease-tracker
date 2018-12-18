@@ -3,11 +3,8 @@ workers = 0
 
 [general]
 dataset = ncbi-disease
-training_subset = train1
-prediction_subset = dev1
-nil_symbol = NIL
-dataset_cache = ${rootpath}/runs/dscache/{}.tgz
-startup_scripts = []
+training_subset = train
+prediction_subset = dev
 
 [logging]
 format = %(asctime)s - %(message)s
@@ -15,22 +12,17 @@ level = INFO
 summary_fn = ${rootpath}/runs/summaries/${timestamp}.txt
 prediction_fn = ${rootpath}/runs/predictions/${timestamp}.tsv
 detailed_fn = ${rootpath}/runs/detailed/${timestamp}.{}.tsv
-trec_eval_fn = ${rootpath}/runs/trec_eva/${timestamp}.{}.tsv
 
 [candidates]
-generator = SGramCosine(.3, 100)
-	PhraseVecFixedSet(100, "mean", "emb_stem")
+generator = SGramCosine(.5, 20)
+	PhraseVecFixedSet(20, "mean", "emb_stem")
 	Hyperonym
 	Abbreviation
-	Composite
-	SymbolReplacement
 oracle = {"train": 3, "predict": 0}
-suppress_ambiguous = True
 workers = 0
 
 [emb]
-sample_size = 50
-context_size = 500
+sample_size = 100
 embedding_dim = 50
 embedding_voc = 10000
 vectorizer_cache = True
@@ -41,44 +33,39 @@ trainable = False
 
 [emb_sub]
 sample_size = ${emb:sample_size}
-context_size = ${emb:context_size}
 embedding_dim = ${emb:embedding_dim}
 embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}
 tokenizer = bpe
-tokenizer_model = ${rootpath}/data/embeddings/bpe_pmcoa10000model
+tokenizer_model = ${rootpath}/data/embeddings/bpe_abstract10000model
 preprocess = none
-embedding_fn = ${rootpath}/data/embeddings/bpe_pmcoa10000_vectors200.txt
+embedding_fn = ${rootpath}/data/embeddings/bpe_vectors_10000_50_w2v.txt
 trainable = False
 
 [rank]
-embeddings = ["emb"]
+embeddings = ["emb", "emb_sub"]
 n_kernels = 50
-filter_width = [3]
+filter_width = [3, 4, 5]
 activation = tanh
-optimizer = {"class_name": "adam", "config": {"amsgrad": true, "lr": 1e-4}}
+optimizer = {"class_name": "adam", "config": {"amsgrad": true}}
 loss = binary_crossentropy
 epochs = 100
 batch_size = 32
 min_score = 0.0
-workers = 3
 
 [stop]
 min_delta = 0
-patience = 3
+patience = 5
 baseline = 0
 
 [ncbi-disease]
-corpus_dir = ${rootpath}/data/ncbi-disease/
-dict_fn = ${rootpath}/data/ncbi-disease/MEDIC+UMLS.tsv
-
-[share-clef]
-corpus_dir = ${rootpath}/data/share-clef/
-dict_fn = ${rootpath}/data/share-clef/SNOMED.tsv
+train_fn = ${rootpath}/data/ncbi-disease/NCBItrainset_corpus.txt
+dev_fn = ${rootpath}/data/ncbi-disease/NCBIdevelopset_corpus.txt
+test_fn = ${rootpath}/data/ncbi-disease/NCBItestset_corpus.txt
+dict_fn = ${rootpath}/data/ncbi-disease/CTD_diseases.tsv
 
 [emb_stem]
 sample_size = ${emb:sample_size}
-context_size = ${emb:context_size}
 embedding_dim = ${emb:embedding_dim}
 embedding_voc = ${emb:embedding_voc}
 vectorizer_cache = ${emb:vectorizer_cache}

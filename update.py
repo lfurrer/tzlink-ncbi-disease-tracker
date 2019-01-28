@@ -70,8 +70,11 @@ def _parse(summary):
 
 
 def _main_scores(results):
-    acc, corr, total, unreachable = map(float, results.split()[1:8:2])
-    reachable = corr/(total-unreachable)
+    acc, corr, total, *unreachable = map(float, results.split()[1:8:2])
+    if unreachable:
+        reachable = corr/(total-unreachable[0])
+    else:  # classification approach has no reachable/unreachable distinction
+        reachable = '--'
     return ['{:.4}'.format(s) for s in (acc, reachable)]
 
 
